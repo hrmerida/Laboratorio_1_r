@@ -1,0 +1,53 @@
+#---------LABORATORIO 1 Hector Merida
+
+
+#Ejercicio1
+
+# defino vector
+studen_1 <- c(50.4, 62.3, 92.1, 77.6, TRUE)
+studen_2 <- c(41.7, 87.9, 75.3, 72.4, FALSE)
+studen_3 <- c(30.3, 67.8, 69.3, 71.2, FALSE)
+studen_4 <- c(65.4, 85.1, 92.3, 96.8, TRUE)
+studen_5 <- c(70.4, 88.2, 95.2, 90.7, TRUE)
+
+#Consolidado Vector
+students_vector_consolidado<- c(studen_1, studen_2,studen_3,studen_4,studen_5)
+#Creo matrix
+students_matrix <- matrix(students_vector_consolidado, byrow=TRUE, ncol=5)
+students_matrix
+
+
+
+#Ejercicio2
+
+name_students  <- c ( "Lily Brown", "Davis Moore", "Susan Taylor", "Mike Jones",  "Tom Hill" )
+name_courses_legal_age  <- c ( "TIC", "Accounting", "Psychology", "Ethics",  "Legal_age") 
+
+colnames(students_matrix) <- name_courses_legal_age
+rownames(students_matrix) <- name_students 
+
+students_matrix
+
+
+#Ejercicio 3
+ 
+total_grade_student <-  rowSums(students_matrix[c(1:5),1:4])
+total_grade_student
+
+ 
+result_students <- cbind(students_matrix, total_grade_student)
+result_students
+
+selected_elements  <- (students_matrix[c(1,3,5),c(2,4)])
+selected_elements
+
+
+
+ #DATA FRAME
+students_grades_df <- data.frame( result_students)
+students_grades_df
+
+subset(students_grades_df, subset = Accounting > 80 & Legal_age == TRUE)
+
+
+
